@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-country-item',
+  selector: 'country-item',
   templateUrl: './country-item.component.html',
   styleUrls: ['./country-item.component.scss']
 })
 export class CountryItemComponent implements OnInit {
 
+  @Input() country: any = {}
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
