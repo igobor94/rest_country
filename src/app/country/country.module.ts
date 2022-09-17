@@ -6,6 +6,7 @@ import { CountryComponent } from './country.component';
 import { CountryListComponent } from './country-list/country-list.component';
 import { CountryDetailComponent } from './country-detail/country-detail.component';
 import { CountryItemComponent } from './country-item/country-item.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CountryItemComponent } from './country-item/country-item.component';
   ],
   imports: [
     CommonModule,
-    CountryRoutingModule
+    CountryRoutingModule,
+    SharedModule
   ]
 })
 export class CountryModule { }

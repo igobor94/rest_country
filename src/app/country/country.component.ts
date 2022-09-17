@@ -8,11 +8,21 @@ import { CountryService } from '../core/services/country.service';
 })
 export class CountryComponent implements OnInit {
 
+  COUNTRIES: any[] = []
+
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
-    this.countryService.getCountries().subscribe(res => console.log(res))
+    this.getCountries()
   }
+
+  getCountries(): any{
+    return this.countryService.getCountries().subscribe(response => this.COUNTRIES = [...this.COUNTRIES, ...response])
+  }
+
+
+
+
 
 
 
