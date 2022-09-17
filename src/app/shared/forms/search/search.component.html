@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <input type="text" formControlName="search-input">
+    <button type="submit" [disabled]="!form.form.valid">
+        Search
+    </button>
+</form>

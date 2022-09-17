@@ -3,22 +3,29 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogPipe } from './log/log.pipe';
-
+import { SearchComponent } from './forms/search/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LogPipe
+    SearchComponent,
+    LogPipe,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    LogPipe
+    SearchComponent,
+    LogPipe,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
