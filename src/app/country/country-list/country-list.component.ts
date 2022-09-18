@@ -5,13 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './country-list.component.html',
   styleUrls: ['./country-list.component.scss']
 })
-export class CountryListComponent implements OnInit {
+export class CountryListComponent {
   
   @Input() countries: Array<Object> = []
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

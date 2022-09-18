@@ -7,7 +7,7 @@ import { Output, EventEmitter } from '@angular/core';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent{
 
   searchForm = new FormGroup({
     searchInput: new FormControl('')
@@ -16,9 +16,6 @@ export class SearchComponent implements OnInit {
   @Output() submittedForm = new EventEmitter<Object>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onSubmit() {
     return this.submittedForm.emit(this.searchForm);

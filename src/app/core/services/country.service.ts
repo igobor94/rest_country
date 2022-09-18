@@ -18,20 +18,16 @@ export class CountryService {
   
 
   testLog(): void {
-    // console.log(this.searchCountry({searchInput: 'Poland'}).subscribe(val => console.log(val)))
+    // ONLY FOR TESTING SERVICES WHICH DOESN'T HAVE VOID SETS OF VALUES
   }
 
-  searchCountry(_country: any) {
+  searchCountry(_country: any): Observable<Object[]> {
     return this.http.get<Array<Object>>(this.url).pipe(map(country => country.filter((country: any) => country.name.common.toLowerCase().includes(_country.value.searchInput.toLowerCase()))))
   }
 
   filterCountrySubject() {
 
   }
-
-  // filterCountries() {
-  //   return this.http.get<Array<Object>>(this.url).pipe(map())
-  // }
 
 
 }
