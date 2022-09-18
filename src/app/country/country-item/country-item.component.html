@@ -1,2 +1,3 @@
-
-{{ country.name.common }}
+<a [routerLink]="['/country/' +  _id  + '/view']" routerLinkActive="router-link-active" >
+    {{ country | log }}
+</a>

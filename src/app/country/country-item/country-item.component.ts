@@ -8,11 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CountryItemComponent implements OnInit {
 
   @Input() country: any = {}
+  _id: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
-
+    this._id = this.country.idd.suffixes[0].toString();
+    console.log(this._id)
   }
 
 }
