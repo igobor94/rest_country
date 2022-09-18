@@ -8,17 +8,25 @@ import { CountryService } from '../core/services/country.service';
 })
 export class CountryComponent implements OnInit {
 
-  COUNTRIES: any[] = []
+  COUNTRIES: object[] = []
 
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
     this.getCountries()
+    this.countryService.testLog();
   }
 
-  getCountries(): any{
+  getCountries() {
     return this.countryService.getCountries().subscribe(response => this.COUNTRIES = [...this.COUNTRIES, ...response])
   }
+
+  getFindedCountries(country: Object) {
+    return this.countryService.searchCountry(country).subscribe(finded => this.COUNTRIES = [...finded]) 
+    
+  }
+
+
 
 
 

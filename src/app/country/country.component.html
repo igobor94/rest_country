@@ -1,4 +1,4 @@
 <div>
-    <search-form></search-form>
+    <search-form (submittedForm)="getFindedCountries($event)"></search-form>
     <ul country-list [countries]="COUNTRIES"></ul>
 </div>
