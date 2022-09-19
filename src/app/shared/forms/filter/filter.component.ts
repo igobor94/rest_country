@@ -8,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class FilterComponent implements OnInit {
 
-  REGIONS: Array<string> = ['all', 'africa', 'america', 'asia', 'europe', 'oceania']
+  REGIONS: Array<string> = ['all', 'africa', 'americas', 'asia', 'europe', 'oceania']
 
   filterForm = new FormGroup({
     filterOption: new FormControl('')

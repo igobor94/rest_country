@@ -27,7 +27,8 @@ export class CountryComponent implements OnInit {
   }
 
   getFilteredCountries(region: string) {
-    return this.countryService.filterCountries(region).subscribe(filtered => this.filterCOUNTRIES = [...filtered])
+    this.filterCOUNTRIES = [];
+    return this.countryService.filterCountries(region).subscribe(filtered => (region === 'all') ? this.COUNTRIES : this.filterCOUNTRIES = [...filtered])
   }
 
   getClear() {
