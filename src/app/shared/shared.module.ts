@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LogPipe } from './log/log.pipe';
 import { SearchComponent } from './forms/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterComponent } from './forms/filter/filter.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     SearchComponent,
     LogPipe,
+    FilterComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     SearchComponent,
+    FilterComponent,
     LogPipe,
     ReactiveFormsModule,
     FormsModule

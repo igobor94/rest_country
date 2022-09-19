@@ -19,14 +19,15 @@ export class CountryService {
 
   testLog(): void {
     // ONLY FOR TESTING SERVICES WHICH DOESN'T HAVE VOID SETS OF VALUES
+    this.filterCountries('africa').subscribe(c => console.log(c));
   }
 
   searchCountry(_country: any): Observable<Object[]> {
     return this.http.get<Array<Object>>(this.url).pipe(map(country => country.filter((country: any) => country.name.common.toLowerCase().includes(_country.value.searchInput.toLowerCase()))))
   }
 
-  filterCountrySubject() {
-
+  filterCountries(region: string) {
+    return this.http.get<Array<Object[]>>(this.url).pipe(map(country => country.filter((country: any) => country.region.toLowerCase() === region)))
   }
 
 

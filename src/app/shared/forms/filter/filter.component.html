@@ -1,1 +1,6 @@
-<p>filter works!</p>
+<form [formGroup]="filterForm">
+    <label for="filter-option">Filter: </label>
+    <select #filterSelect name="region" id="filter-option" formControlName="filterOption" (change)="filterChanged(filterSelect.value)" >
+        <option *ngFor="let region of REGIONS" value="{{ region }}">{{ region }}</option>
+    </select>
+</form>
