@@ -9,6 +9,7 @@ import { CountryService } from '../core/services/country.service';
 export class CountryComponent implements OnInit {
 
   COUNTRIES: object[] = []
+  filterCOUNTRIES: object [] = []
 
   constructor(private countryService: CountryService) { }
 
@@ -22,8 +23,15 @@ export class CountryComponent implements OnInit {
   }
 
   getFindedCountries(country: Object) {
-    return this.countryService.searchCountry(country).subscribe(finded => this.COUNTRIES = [...finded]) 
-    
+    return this.countryService.searchCountry(country).subscribe(finded => this.filterCOUNTRIES = [...finded]) 
+  }
+
+  getFilteredCountries(region: string) {
+    return this.countryService.filterCountries(region).subscribe(filtered => this.filterCOUNTRIES = [...filtered])
+  }
+
+  getClear() {
+    return this.countryService.getCountries
   }
 
 

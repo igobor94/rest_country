@@ -1,3 +1,15 @@
-<a [routerLink]="['/country/' +  _id  + '/view']" routerLinkActive="router-link-active" >
-    {{ country | log }}
-</a>
+<div class="country__container">
+    <div class="country_wrapper">
+        <img class="country__flag" src="{{ country.flags.png }}" alt="{{ country.name.common }}">
+    </div>
+    <div class="country__wrapper">
+        <a class="country__link" [routerLink]="['/country/' +  _id  + '/view']" routerLinkActive="router-link-active" >
+            <h3 class="country__name">{{ country.name.official }}</h3>
+        </a>
+        <p class="country__text"><span class="country__bold">Population: </span>{{ country.population | number }}</p>
+        <p class="country__text"><span class="country__bold">Region: </span>{{ country.region }}</p>
+        <p class="country__text"><span class="country__bold">Capital: </span>{{ country.capital }}</p>
+    </div>
+
+</div>
+
