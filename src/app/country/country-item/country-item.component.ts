@@ -13,8 +13,7 @@ export class CountryItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this._id = this.country.idd.suffixes[0].toString();
-    console.log(this._id)
+    this._id = this.country.idd.suffixes[0]?.toString();
   }
 
 }
