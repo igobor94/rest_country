@@ -1,0 +1,39 @@
+@import './../../../styles/variables';
+
+.pagination {
+    &__container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        background-color: #fff;
+        /* Green */
+        border: none;
+        color: $very-dark-blue-text;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        box-shadow: 0px 0px 8px -5px rgba(66, 68, 90, 1);
+
+        &--first {}
+
+        &--last {}
+
+        &--next {}
+
+        &--previous {}
+
+        &--input {
+
+        }
+
+        &--disabled {
+            color:darkgray
+        }
+    }
+}
