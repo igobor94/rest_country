@@ -6,9 +6,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss']
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
 
-  REGIONS: Array<string> = ['all', 'africa', 'americas', 'asia', 'europe', 'oceania']
+  REGIONS: Array<string> = ['africa', 'americas', 'asia', 'europe', 'oceania']
 
   filterForm = new FormGroup({
     filterOption: new FormControl('')
@@ -17,9 +17,6 @@ export class FilterComponent implements OnInit {
   @Output() changedOption = new EventEmitter<string>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   filterChanged(region: string) {
     return this.changedOption.emit(region)
