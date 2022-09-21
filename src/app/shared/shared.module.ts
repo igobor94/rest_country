@@ -6,6 +6,7 @@ import { LogPipe } from './log/log.pipe';
 import { SearchComponent } from './forms/search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from './forms/filter/filter.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FilterComponent } from './forms/filter/filter.component';
     SearchComponent,
     LogPipe,
     FilterComponent,
+    PaginationComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { FilterComponent } from './forms/filter/filter.component';
     FooterComponent,
     SearchComponent,
     FilterComponent,
+    PaginationComponent,
     LogPipe,
     ReactiveFormsModule,
     FormsModule

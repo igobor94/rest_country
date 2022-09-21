@@ -8,8 +8,11 @@ import { CountryService } from '../core/services/country.service';
 })
 export class CountryComponent implements OnInit {
 
-  COUNTRIES: object[] = []
-  filterCOUNTRIES: object [] = []
+  COUNTRIES: object[] = [];
+  filterCOUNTRIES: object [] = [];
+  displayCOUNTRIES: object [] = [];
+  countriesPerPage: number = 8;
+  allPages: number = 0;
 
   constructor(private countryService: CountryService) { }
 
@@ -19,7 +22,11 @@ export class CountryComponent implements OnInit {
   }
 
   getCountries() {
-    return this.countryService.getCountries().subscribe(response => this.COUNTRIES = [...this.COUNTRIES, ...response])
+    return this.countryService.getCountries().subscribe((countries: Object[]) => {
+      this.COUNTRIES = countries
+      this.onPageChange();
+      this.allPages = Math.ceil(this.COUNTRIES.length / this.countriesPerPage);
+    })
   }
 
   getFindedCountries(country: Object) {
@@ -33,6 +40,12 @@ export class CountryComponent implements OnInit {
 
   getClear() {
     return this.countryService.getCountries
+  }
+
+  onPageChange(page: number = 1): void {
+    const startCountry = (page - 1) * this.countriesPerPage
+    const endCountry = page * this.countriesPerPage;
+    this.filterCOUNTRIES = this.COUNTRIES.slice(startCountry, endCountry);
   }
 
 
