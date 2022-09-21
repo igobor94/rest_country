@@ -1,9 +1,50 @@
-<div>
-    <button (click)="onFirst()">First</button>
-    <button (click)="onNextPage()">Next</button>
-    <div>
-    <input type="number" value="1" />
-    </div>
-    <button (click)="onPreviousPage()">Previous</button>
-    <button (click)="onLast()">Last</button>
+<div class="pagination__container">
+  <button
+    class="pagination__button pagination__button--first"
+    [disabled]="currentPage === 1"
+    (click)="onFirst()"
+    [ngClass]="
+      currentPage === 1 ? 'pagination__button--disabled' : null
+    "
+  >
+    First
+  </button>
+  <button
+    class="pagination__button pagination__button--previous"
+    [disabled]="currentPage === 1"
+    (click)="onPreviousPage()"
+    [ngClass]="
+      currentPage === 1 ? 'pagination__button--disabled' : null
+    "
+  >
+    Previous
+  </button>
+  <input
+    class="pagination__button pagination__button--input"
+    (input)="onSetPage($event)"
+    type="number"
+    [value]="currentPage"
+    min="1"
+    [max]="allPagesNumber"
+  />
+  <button
+    class="pagination__button pagination__button--next"
+    [disabled]="currentPage === allPagesNumber"
+    [ngClass]="
+      currentPage === allPagesNumber ? 'pagination__button--disabled' : ''
+    "
+    (click)="onNextPage()"
+  >
+    Next
+  </button>
+  <button
+    class="pagination__button pagination__button--last"
+    [disabled]="currentPage === allPagesNumber"
+    (click)="onLast()"
+    [ngClass]="
+      currentPage === allPagesNumber ? 'pagination__button--disabled' : ''
+    "
+  >
+    Last
+  </button>
 </div>
