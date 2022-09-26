@@ -1,7 +1,8 @@
-<div>
-    <search-form (submittedForm)="getFindedCountries($event)"></search-form>
-    <filter-form (changedOption)="getFilteredCountries($event)"></filter-form>
+<div class="countries countries__container">
+    <div class="countries__filters">
+        <search-form (submittedForm)="getFindedCountries($event)"></search-form>
+        <filter-form (changedOption)="getFilteredCountries($event)"></filter-form>
+    </div>
     <country-pagination [allPagesNumber]="allPages" [countriesPerPage]="countriesPerPage" (changePage)="onPageChange($event)"></country-pagination>
-    <ul country-list [countries]="COUNTRIES" *ngIf="filterCOUNTRIES.length === 0"></ul>
-    <ul country-list [countries]="filterCOUNTRIES" *ngIf="filterCOUNTRIES.length >= 0"></ul>
+    <ul country-list [countries]="displayCOUNTRIES"></ul>
 </div>

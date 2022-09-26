@@ -1,0 +1,10 @@
+.countries {
+    max-width: 1200px;
+    &__container {
+
+    }
+    &__filters {
+        display: flex;
+        justify-content: space-between;
+    }
+}

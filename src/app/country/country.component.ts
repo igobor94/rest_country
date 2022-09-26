@@ -26,26 +26,34 @@ export class CountryComponent implements OnInit {
       this.COUNTRIES = countries
       this.onPageChange();
       this.allPages = Math.ceil(this.COUNTRIES.length / this.countriesPerPage);
+      console.log(this.COUNTRIES, 'from country ts')
     })
   }
 
   getFindedCountries(country: Object) {
-    return this.countryService.searchCountry(country).subscribe(finded => this.filterCOUNTRIES = [...finded]) 
+    return this.countryService.searchCountry(country).subscribe((findedCountries: Object[]) => {
+      console.log('here')
+      this.COUNTRIES = findedCountries
+      this.onPageChange();
+      this.allPages = Math.ceil(this.COUNTRIES.length / this.countriesPerPage);
+    }) 
   }
 
   getFilteredCountries(region: string) {
-    this.filterCOUNTRIES = [];
-    return this.countryService.filterCountries(region).subscribe(filtered => (region === 'all') ? this.COUNTRIES : this.filterCOUNTRIES = [...filtered])
+    return this.countryService.filterCountries(region).subscribe((filtered: Object[] ) => {
+      if(region !== 'all') {
+        this.COUNTRIES = filtered
+        this.onPageChange();
+        this.allPages = Math.ceil(this.COUNTRIES.length / this.countriesPerPage);
+      } else {
+        this.getCountries()
+      }
+    })
   }
-
-  getClear() {
-    return this.countryService.getCountries
-  }
-
   onPageChange(page: number = 1): void {
     const startCountry = (page - 1) * this.countriesPerPage
     const endCountry = page * this.countriesPerPage;
-    this.filterCOUNTRIES = this.COUNTRIES.slice(startCountry, endCountry);
+    this.displayCOUNTRIES = this.COUNTRIES.slice(startCountry, endCountry);
   }
 
 
