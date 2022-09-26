@@ -44,10 +44,10 @@ export class PaginationComponent implements OnInit {
   }
   
   onPreviousPage(): void {
-    this.currentPage -= 1
+    this.currentPage--
   }
   onNextPage(): void {
-    this.currentPage += 1
+    this.currentPage++
   }
 
 }
